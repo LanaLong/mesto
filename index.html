@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mesto</title>
+    <link rel="stylesheet" href="./pages/index.css">
+</head>
+
+<body>
+    <div class="root">
+        <header class="header root__section">
+            <img src="./images/logo.svg" alt="mesto logo" class="logo">
+        </header>
+        <div class="profile root__section">
+            <div class="user-info">
+                    <div class="user-info__photo"></div>
+                <div class="user-info__data">
+                    <h1 class="user-info__name"></h1>
+                    <p class="user-info__about"></p>
+                    <button class="user-info__button-edit">Edit</button>
+                </div>
+                <button class="button user-info__button">+</button>
+            </div>
+        </div>
+        <div class="places-list root__section">
+
+        </div>
+        <!-- // popup for changing avatar -->
+        <div class="popup" id="popupChangeAvatar">
+            <div class="popup__content">
+                <img src="./images/close.svg" alt="" class="popup__close">
+                <h3 class="popup__title">Обновить аватар</h3>
+                <form class="popup__form" name="new">
+                    <label for="link">
+                        <input type="URL" name="link" id="newAvatarLink" class="popup__input popup__input_type_link"
+                               placeholder="Ссылка на аватар" required>
+                        <span id="error-link" class="popup__error"></span>
+                    </label>
+
+                    <button type="text" id="btnAvatar" class="button popup__button popup__button_type_text">Сохранить</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- // popup for add card -->
+        <div class="popup" id="popupAddCard">
+            <div class="popup__content">
+                <img src="./images/close.svg" alt="" class="popup__close">
+                <h3 class="popup__title">Новое место</h3>
+                <form class="popup__form" name="new">
+                    <label for="name">
+                        <input type="text" name="name" id="name" class="popup__input popup__input_type_name"
+                            minlength="2" maxlength="30" placeholder="Название" required>
+                        <span id="error-name" class="popup__error"></span>
+                    </label>
+                    <label for="link">
+                        <input type="URL" name="link" id="link" class="popup__input popup__input_type_link"
+                            placeholder="Ссылка на картинку" required>
+                        <span id="error-link" class="popup__error"></span>
+                    </label>
+
+                    <button type="text" class="button popup__button">+</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- // popup for edit info -->
+        <div class="popup" id="popupEdit">
+            <div class="popup__content">
+                <img src="./images/close.svg" alt="" class="popup__close">
+                <h3 class="popup__title">Редактировать профиль</h3>
+                <form class="popup__form" name="user">
+                    <label for="username">
+                        <input type="text" name="username" id="username" class="popup__input popup__input_type_username"
+                            minlength="2" maxlength="30" placeholder="Имя" required>
+                        <span id="error-username" class="popup__error"></span>
+                    </label>
+                    <label for="about">
+                        <input type="text" name="about" id="about" class="popup__input popup__input_type_jabout"
+                            minlength="2" maxlength="30" placeholder="О себе" required>
+                        <span id="error-about" class="popup__error"></span>
+                    </label>
+
+                    <button type="text" id="popup-buttonT" class="button popup__button popup__button_type_text" disabled>Сохранить</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- // popup for imgLBox -->
+        <div class="popup" id="popupLBox">
+            <div class="popup__content-image">
+                <img src="./images/close.svg" alt="" class="popup__close">
+                <img class="popup__image" />
+
+            </div>
+        </div>
+    </div>
+    <script src="js/Api.js"></script>
+    <script src="js/Card.js"></script>
+    <script src="js/CardList.js"></script>
+    <script src="js/UserInfo.js"></script>
+    <script src="js/Popup.js"></script>
+    <script src="js/FormValidator.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

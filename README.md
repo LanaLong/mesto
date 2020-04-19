@@ -1,2 +1,2 @@
-# mesto
-Mesto. JS modules project
+# Mesto
+JS modules project
