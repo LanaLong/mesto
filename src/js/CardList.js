@@ -27,3 +27,5 @@ class CardList {
     }
 }
 
+
+export {CardList};

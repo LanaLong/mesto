@@ -17,5 +17,7 @@ class Popup {
     close(popup, form) {
         popup.classList.remove('popup_is-opened');
         form.reset();
-        }
     }
+}
+
+export {Popup};

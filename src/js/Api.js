@@ -65,6 +65,6 @@ class Api {
     removeLike(cardId) {
         return this.makeRequest(`cards/like/${cardId}`, 'DELETE')
     }
-
-
 }
+
+export {Api};

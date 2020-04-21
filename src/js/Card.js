@@ -75,3 +75,5 @@ class Card {
         return cardEl;
     }
 }
+
+export {Card};

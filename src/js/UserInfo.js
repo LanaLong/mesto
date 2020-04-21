@@ -51,3 +51,5 @@ class UserInfo {
         return this.id;
     }
 }
+
+export {UserInfo};

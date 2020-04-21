@@ -47,3 +47,6 @@ class FormValidator {
             });
         }
 }
+
+
+export {FormValidator};
