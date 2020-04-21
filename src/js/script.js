@@ -1,3 +1,12 @@
+import "../pages/index.css";
+
+// import * as Api from "./js/Api.js";
+// import * as Card from "./js/Card.js";
+// import * as CardList from "./js/Cardlist.js";
+// import * as FormValidator from "./js/FormValidator.js";
+// import * as Popup from "./js/Popup.js";
+// import * as UserInfo from "./js/UserInfo.js";
+
 (function () {
 
 const popupLBox = document.querySelector('#popupLBox');
