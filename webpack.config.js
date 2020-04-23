@@ -8,13 +8,7 @@ const webpack = require('webpack');
 const isDev = process.env.NODE_ENV === 'development';
 const isProduct = !isDev;
 
-// const {CleanWebpackPlugin} = require('clean-webpack-plugin');
-// const CopyWebpackPlugin = require('copy-webpack-plugin');
-// const TerserWebpackPlugin = require('terser-webpack-plugin');
-
-
 module.exports = {
-    // context: path.resolve(__dirname, 'src'),
     entry: { main: './src/js/script.js' },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -22,15 +16,24 @@ module.exports = {
     },
     module: {
         rules: [
+
             {
                 test: /\.js$/,
                 use: { loader: "babel-loader" },
                 exclude: /node_modules/
             },
             {
+                test: /\.css$/,
+                use: [
+                    (isDev ? 'style-loader' : MiniCssExtractPlugin.loader),
+                    'css-loader',
+                    'postcss-loader'
+                ],
+            },
+            {
                 test: /\.(png|jpg|gif|ico|svg)$/,
                 use: [
-                    'file-loader?name=../dist/images/[name].[ext]',
+                    'file-loader?name=./images/[name].[ext]',
                     {
                         loader: 'image-webpack-loader',
                         options: {
@@ -44,10 +47,7 @@ module.exports = {
                 test: /\.(eot|ttf|woff|woff2)$/,
                 loader: 'file-loader?name=../dist/vendor/[name].[ext]'
             },
-            {
-                test: /\.css$/,
-                use: ['style-loader', 'css-loader'],
-            },
+
         ]
     },
     plugins: [
@@ -77,24 +77,3 @@ module.exports = {
     ]
 };
 
-
-// {
-//     test: /\.css$/,
-//     use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']
-// },
-// {
-//     test: /\.(png|jpe?g|gif)$/i,
-//     use: [
-//         {
-//             loader: 'file-loader',
-//         },
-//     ],
-// },
-// {
-//     test: /\.css$/i,
-//     use: [
-//         (isDev ? 'style-loader' : MiniCssExtractPlugin.loader),
-//         'css-loader',
-//         'postcss-loader'
-//     ]
-// },  // в правилах укажите, что если вы собираете в режиме dev, то плагин MiniCssExtractPlugin загружать не нужно
