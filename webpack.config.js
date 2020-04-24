@@ -1,5 +1,5 @@
 const path = require('path');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
@@ -19,14 +19,18 @@ module.exports = {
 
             {
                 test: /\.js$/,
-                use: { loader: "babel-loader" },
+                use: { loader: 'babel-loader'},
                 exclude: /node_modules/
             },
             {
                 test: /\.css$/,
                 use: [
                     (isDev ? 'style-loader' : MiniCssExtractPlugin.loader),
-                    'css-loader',
+                    {loader:'css-loader',
+                        options: {
+                            importLoaders: 2
+                        }
+                    },
                     'postcss-loader'
                 ],
             },
@@ -61,7 +65,8 @@ module.exports = {
         }),
         new WebpackMd5Hash(),
         new webpack.DefinePlugin({
-            'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+            'NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+            // 'API_URL' : JSON.stringify(isDev ? 'http://practikum.tk' : 'https://practikum.tk')
         }),
         new MiniCssExtractPlugin({
             filename: 'style.[contenthash].css'
@@ -76,4 +81,3 @@ module.exports = {
         })
     ]
 };
-

@@ -2,7 +2,13 @@ class Api {
     constructor(id, token) {
         this.id = id;
         this.token = token;
-        this.baseUrl = " https://praktikum.tk";
+        if (process.env.NODE_ENV == 'development') {
+            this.baseUrl = 'http://praktikum.tk';
+        }
+        else {
+            this.baseUrl = 'https://praktikum.tk';
+        }
+
     }
 
     makeRequest(address, method = 'GET', body = null) {
@@ -13,7 +19,7 @@ class Api {
             }
         };
 
-        if (method == "PATCH" || method == "POST") {
+        if (method == 'PATCH' || method == 'POST') {
             init.headers['Content-Type'] = 'application/json';
             init.body = body;
         }

@@ -36,12 +36,12 @@ class FormValidator {
             const formArr = Array.from(form);
 
             formArr.forEach(el => {
-                if (el.classList.contains("popup__input")) {
+                if (el.classList.contains('popup__input')) {
                     el.addEventListener("input", () => { this.checkInputValility(el) });
                 }
             });
 
-            formElem.addEventListener("input", () => {
+            formElem.addEventListener('input', () => {
                 this.checkInputValility(event.target);
                 this.setSubmitButtonState(formElem, button);
             });
