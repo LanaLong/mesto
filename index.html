@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Mesto</title>
-    <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.chunks.main.css %>">
+    <link rel="stylesheet" href="style.css,style.37680d190b76cf9b18bd.css">
 </head>
 
 <body>
     <div class="root">
         <header class="header root__section">
-            <img src="<%= require('./images/logo.svg').default %>" alt="mesto logo" class="logo">
+            <img src="./images/logo.svg" alt="mesto logo" class="logo">
         </header>
         <div class="profile root__section">
             <div class="user-info">
@@ -31,7 +31,7 @@
         <!-- // popup for changing avatar -->
         <div class="popup" id="popupChangeAvatar">
             <div class="popup__content">
-                <img src="<%=require('./images/close.svg').default%>" alt="" class="popup__close">
+                <img src="./images/close.svg" alt="" class="popup__close">
                 <h3 class="popup__title">Обновить аватар</h3>
                 <form class="popup__form" name="new">
                     <label for="link">
@@ -48,7 +48,7 @@
         <!-- // popup for add card -->
         <div class="popup" id="popupAddCard">
             <div class="popup__content">
-                <img src="<%=require('./images/close.svg').default%>" alt="" class="popup__close">
+                <img src="./images/close.svg" alt="" class="popup__close">
                 <h3 class="popup__title">Новое место</h3>
                 <form class="popup__form" name="new">
                     <label for="name">
@@ -70,7 +70,7 @@
         <!-- // popup for edit info -->
         <div class="popup" id="popupEdit">
             <div class="popup__content">
-                <img src="<%=require('./images/close.svg').default%>" alt="" class="popup__close">
+                <img src="./images/close.svg" alt="" class="popup__close">
                 <h3 class="popup__title">Редактировать профиль</h3>
                 <form class="popup__form" name="user">
                     <label for="username">
@@ -92,13 +92,13 @@
         <!-- // popup for imgLBox -->
         <div class="popup" id="popupLBox">
             <div class="popup__content-image">
-                <img src="<%=require('./images/close.svg').default%>" alt="" class="popup__close">
+                <img src="./images/close.svg" alt="" class="popup__close">
                 <img class="popup__image" />
 
             </div>
         </div>
     </div>
-<script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
+<script src="main.212b42f820e61d3c0078.js"></script>
 
 </body>
 

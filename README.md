@@ -1,2 +1,0 @@
-# Mesto
-JS modules project
