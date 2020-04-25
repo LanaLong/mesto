@@ -1,3 +1,12 @@
+import '../pages/index.css';
+
+import {Api} from './Api';
+import {Card} from './Card.js';
+import {CardList} from './Cardlist.js';
+import {FormValidator} from './FormValidator.js';
+import {Popup} from './Popup.js';
+import {UserInfo} from './UserInfo.js';
+
 (function () {
 
 const popupLBox = document.querySelector('#popupLBox');
@@ -42,39 +51,22 @@ btnEdit.addEventListener('click', function () {
     }
 );
 
-// function editInfo(event) {
-//     event.preventDefault();
-//     if (event.key === 'Enter' || event.type === 'submit') {
-//
-//         const btnEditContent = btnEdit.innerHTML;
-//
-//         btnEdit.innerHTML = 'Загрузка...';
-//         userInfo.updateUserInfo()
-//
-//         btnEdit.innerHTML = btnEditContent;
-//
-//         popup.close(popupEdit, popupAddCardForm);
-//         popupAddCardForm.reset();
-//     }
-// }
+function editInfo(event) {
+    event.preventDefault();
+    if (event.key === 'Enter' || event.type === 'submit') {
 
-// так работает не там
-    function editInfo(event) {
-        event.preventDefault();
-        if (event.key === 'Enter' || event.type === 'submit') {
+        const btnEditContent = btnEdit.innerHTML;
 
-            const btnEditContent = btnEdit.innerHTML;
+        btnSavePopupT.innerHTML = 'Загрузка...';
+        userInfo.updateUserInfo()
+            .then(res => {
+                btnSavePopupT.innerHTML = btnEditContent;
+                popup.close(popupEdit, popupAddCardForm);
+                popupAddCardForm.reset();
+            });
 
-            btnSavePopupT.innerHTML = 'Загрузка...';
-            userInfo.updateUserInfo()
-                .then(res => {
-                    btnSavePopupT.innerHTML = btnEditContent;
-                    popup.close(popupEdit, popupAddCardForm);
-                    popupAddCardForm.reset();
-                });
-
-        }
     }
+}
 
 popupEditForm.addEventListener('submit', editInfo);
 
@@ -147,5 +139,3 @@ formValidator.setEventListeners(popupAddCard, popupAddCardForm);
 formValidator.setEventListeners(popupEdit, popupAddCardForm);
 formValidator.setEventListeners(popupChangeAvatar, popupAddCardForm);
 })();
-
-
