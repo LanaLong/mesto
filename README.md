@@ -4,7 +4,8 @@ Mesto
 ---
 JS modules project.
 Настройка рабочей версии Webpack для проекта, разбиение js кода на модули. 
-[![](https://img.shields.io/badge/version-1.0.6-green)](https://img.shields.io/badge/version-1.0.6-green)
+
+[![](https://img.shields.io/badge/version-1.0.7-green)](https://img.shields.io/badge/version-1.0.6-green)
 ***
 Страница preview на [GitHub Pages](https://lanalong.github.io/mesto/)
 

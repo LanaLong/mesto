@@ -2,14 +2,14 @@ class Api {
     constructor(id, token) {
         this.id = id;
         this.token = token;
-        if (process.env.NODE_ENV == 'development') {
-            this.baseUrl = 'http://praktikum.tk';
-        }
-        else {
-            this.baseUrl = 'https://praktikum.tk';
-        }
-
+        this.baseUrl = (NODE_ENV === 'development') ? 'http://praktikum.tk' : 'https://praktikum.tk';
     }
+
+    // constructor(baseUrl, id, token) {
+    //     this.id = id;
+    //     this.token = token;
+    //     this.baseUrl = API_URL;
+    // }
 
     makeRequest(address, method = 'GET', body = null) {
         const init = {

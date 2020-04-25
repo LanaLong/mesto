@@ -3,6 +3,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const ImageminPlugin = require('imagemin-webpack-plugin').default;
+const FontminPlugin = require('fontmin-webpack');
 
 const webpack = require('webpack');
 const isDev = process.env.NODE_ENV === 'development';
@@ -55,9 +57,6 @@ module.exports = {
         ]
     },
     plugins: [
-        new MiniCssExtractPlugin({
-            filename: 'style.css'
-        }),
         new HtmlWebpackPlugin({
             inject: false,
             template: './src/index.html',
@@ -78,6 +77,16 @@ module.exports = {
                 preset: ['default'],
             },
             canPrint: true
+        }),
+        new FontminPlugin({
+            autodetect: true, // automatically pull unicode characters from CSS
+            glyphs: ['\uf0c8' /* extra glyphs to include */],
+        }),
+        new ImageminPlugin({
+            disable: process.env.NODE_ENV !== 'production',
+            pngquant: {
+                quality: '95-100'
+            }
         })
     ]
 };
