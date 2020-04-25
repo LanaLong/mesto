@@ -8,7 +8,6 @@ const FontminPlugin = require('fontmin-webpack');
 
 const webpack = require('webpack');
 const isDev = process.env.NODE_ENV === 'development';
-const isProduct = !isDev;
 
 module.exports = {
     entry: { main: './src/js/script.js' },
@@ -51,7 +50,7 @@ module.exports = {
             },
             {
                 test: /\.(eot|ttf|woff|woff2)$/,
-                loader: 'file-loader?name=../dist/vendor/[name].[ext]'
+                loader: 'file-loader?name=./vendor/[name].[ext]'
             },
 
         ]
@@ -65,7 +64,6 @@ module.exports = {
         new WebpackMd5Hash(),
         new webpack.DefinePlugin({
             'NODE_ENV': JSON.stringify(process.env.NODE_ENV),
-            // 'API_URL' : JSON.stringify(isDev ? 'http://practikum.tk' : 'https://practikum.tk')
         }),
         new MiniCssExtractPlugin({
             filename: 'style.[contenthash].css'
@@ -79,8 +77,8 @@ module.exports = {
             canPrint: true
         }),
         new FontminPlugin({
-            autodetect: true, // automatically pull unicode characters from CSS
-            glyphs: ['\uf0c8' /* extra glyphs to include */],
+            autodetect: true,
+            glyphs: ['\uf0c8'],
         }),
         new ImageminPlugin({
             disable: process.env.NODE_ENV !== 'production',

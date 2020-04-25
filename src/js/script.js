@@ -35,7 +35,6 @@ const aboutEdit = popupEditForm.elements.about;
 
 
 const api = new Api(`cohort9`, `e21476c2-4e6d-484a-a9e0-1ce85406436a`);
-// const api = new Api(API_URL, 'cohort9', 'e21476c2-4e6d-484a-a9e0-1ce85406436a');
 const userInfo = new UserInfo({username, about, avatarImg}, {usernameEdit, aboutEdit, newAvatarLink}, api);
 userInfo.setUserInfo();
 const popup = new Popup;

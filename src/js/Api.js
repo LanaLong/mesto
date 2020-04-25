@@ -5,12 +5,6 @@ class Api {
         this.baseUrl = (NODE_ENV === 'development') ? 'http://praktikum.tk' : 'https://praktikum.tk';
     }
 
-    // constructor(baseUrl, id, token) {
-    //     this.id = id;
-    //     this.token = token;
-    //     this.baseUrl = API_URL;
-    // }
-
     makeRequest(address, method = 'GET', body = null) {
         const init = {
             method: method,
